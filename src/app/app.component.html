@@ -1,9 +1,13 @@
 <div class="parent">
-  <div
+  <app-child
     *ngFor="let ii of rr"
     class="child"
-    id="{{ ii }}"
+    [col]="getCol(ii)"
+    [row]="getRow(ii)"
     draggable="true"
     style="border-color: none"
-  ></div>
+    (dragstart)="dragstart()"
+    [ngClass]="{ shaded: isEven(ii) }"
+  >
+  </app-child>
 </div>
